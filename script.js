@@ -255,11 +255,11 @@ function introTimeline() {
     // The touch: the green lamp on the scoring box.
     .to('.lamp', { opacity: 1, duration: 0.01 }, 0.6)
     .to('.lamp', { opacity: 0, duration: 0.08 }, 0.65)
-    .to('#hero', { opacity: mobile ? 0.35 : 0.85, duration: 0.1 }, 0.72)
+    .to('#hero', { opacity: mobile ? 0.35 : 0.6, duration: 0.1 }, 0.72)
     // Recover to en garde behind the title. The end of the lunge is out of focus
     // in the source, and this is what a fencer does after a lunge anyway.
     .to(v, { frame: RECOVER_FRAME, duration: 0.12, ease: 'power1.out', onUpdate: () => hero.draw() }, 0.72)
-    .to(v, { shift: mobile ? 0 : 0.06, zoom: 1.02, duration: 0.12, ease: 'power2.inOut', onUpdate: () => hero.draw(true) }, 0.72)
+    .to(v, { shift: mobile ? 0 : 0.2, zoom: 1.02, duration: 0.12, ease: 'power2.inOut', onUpdate: () => hero.draw(true) }, 0.72)
     .fromTo('.title', { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.1 }, 0.76)
     .to({}, { duration: 0.14 }, 0.86);
 }

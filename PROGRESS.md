@@ -63,13 +63,21 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - Leo doesn't like Young Serif for the vibe. Font options shown to him; waiting on his pick.
 - Photos: drop them in source/photos-inbox/ (not committed); they get graded, cropped and compressed into assets/img/.
 - Sharing: Leo asked for a free link to send a friend. Repo made public and GitHub Pages enabled at https://leozh0u.github.io/ricefence/ (the API returned that URL). My live check was blocked by the permission classifier, so Leo checks it himself.
-| Font Leo likes | blocked | four options sent (source/font-options.png), waiting on his pick |
+| Font Leo likes | done | the problem was the nav font; nav, buttons and tagline now Young Serif; captured 1280/1440/1920/375 |
 | Photos | open | Leo drops them in source/photos-inbox/ |
 - Real schedule from Leo's club poster: Mon 7-9 pm all weapons, Fri 6-8 pm all weapons, Sat 7-9 pm rotating weapon (foil/épée/sabre), all in the Tudor East Gym. Replaced the old Tue/Thu MAC gym times everywhere (Practice, Join, meta description).
 - Leo asked for rule-learning resources under Weapons: added "Learn the rules" (Vox explainer, FIE foil/épée/sabre explainers, Ninh Ly on right of way, USA Fencing Fencing 101 and rulebook). Links checked 27 Sept 2026.
 - Leo's poster has an owl-and-crossed-blades crest with blackletter "Rice Fencing Club". Asked whether that's the club's logo.
 | Learn-the-rules links under Weapons | done | 7 links, sources checked; captured at 1440 and 375 |
 - Leo: the font he disliked was the nav (Archivo). Nav links and buttons now use Young Serif like the headings.
-- Leo liked the title overlapping the fencer in the font-options image: title is now two lines ("Rice / Fencing Club"), up to 196px, and the fencer only shifts slightly so the title runs across the jacket. Canvas stays at 0.85 behind it; tagline has a text shadow.
+- Leo tried the title overlapping the fencer, then asked for the original back "identically": three lines, clamp(60px, 9vw, 140px), max-width 560px, fencer shifted 0.2, canvas at 0.6. Restored and diffed against 89361e3.
 - Leo: FAQ answers sounded AI. Rewritten plainly, no quips. Saturday rotation used as the "which weapon" answer.
 - Logo: Leo wants a simpler version of the owl-and-crossed-blades crest from the club poster, via ChatGPT.
+- Copy pass for AI tone: first-practice paragraph, Join step 3 and the sabre line made plainer (Leo: "these all sound so bad an ai").
+- Tagline on one line in Young Serif (Leo: "make this one line, not that font"). One line from 1280 up; wraps to two on phones.
+| Remove redundant bits, Skip intro, Scroll cue | done | captured at 1440, grep finds none left |
+| Title line in Leo's words, one line, serif | done | captured 1280/1440/1920 one line; 375 wraps |
+| Original title back, identically | done | CSS/JS diffed against 89361e3 |
+| FAQ and copy not AI-sounding | done | read back all visible copy; FAQ render captured |
+| Shareable link | blocked | Pages on at leozh0u.github.io/ricefence; my live check was blocked by the permission classifier, Leo to open it |
+| Logo (simpler poster owl) | blocked | prompt given; waiting on Leo's ChatGPT output |

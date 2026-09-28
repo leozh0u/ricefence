@@ -115,15 +115,14 @@ p { margin: 0 0 1em; }
 }
 
 .title {
-  position: absolute; z-index: 3; left: var(--gutter); bottom: 12vh; max-width: min(1400px, 92vw);
+  position: absolute; z-index: 3; left: var(--gutter); bottom: 12vh; max-width: 560px;
   opacity: 0; visibility: hidden;
 }
 .title h1 {
-  text-shadow: 0 2px 30px rgba(0, 0, 0, .35);
-  font-size: clamp(60px, 10.5vw, 196px); line-height: .9;
+  font-size: clamp(60px, 9vw, 140px); line-height: .9;
   font-weight: 600; letter-spacing: -.03em;
 }
-.title-line { margin: 28px 0 28px; max-width: 26em; font-size: 18px; color: var(--white); text-shadow: 0 1px 14px rgba(0, 0, 0, .9), 0 0 3px rgba(0, 0, 0, .8); }
+.title-line { margin: 26px 0 28px; font-family: var(--serif); font-size: clamp(18px, 1.6vw, 24px); line-height: 1.35; white-space: nowrap; color: var(--white); text-shadow: 0 1px 14px rgba(0, 0, 0, .9), 0 0 3px rgba(0, 0, 0, .8); }
 .title-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 
@@ -352,7 +351,7 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
   /* The jacket fills the lower screen on phones, so commands use the dark band up top. */
   .cmd-1, .cmd-2, .cmd-3 { top: 12%; bottom: auto; left: var(--gutter); right: auto; text-align: left; font-size: 56px; }
   .title { bottom: 88px; right: var(--gutter); }
-  .title-line { margin: 20px 0; font-size: 16px; }
+  .title-line { margin: 20px 0; font-size: 18px; white-space: normal; }
   .brand-fencing { font-size: 20px; }
 }
 
