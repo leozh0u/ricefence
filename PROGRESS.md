@@ -51,7 +51,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Logo | blocked | waiting on Leo's ChatGPT options (prompt given) |
 | Practice times current? | blocked | Leo to confirm with officers |
 | Google Form sign-up | blocked | Leo makes form, paste link into FORM_URL |
-| Buy ricefence.com, deploy | open | after Leo's go-ahead; repo private, Pages needs public or Cloudflare Pages |
+| Buy ricefence.com, deploy | open | Pages is on at leozh0u.github.io/ricefence; domain still to buy |
 | Photoshoot, swap footage | open | shot list in the plan; scripts ready |
 
 ## 2026-09-27, Leo's review round
@@ -62,4 +62,6 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - rfc@rice.edu is not made up: it's the contact email on the club's OwlNest page.
 - Leo doesn't like Young Serif for the vibe. Font options shown to him; waiting on his pick.
 - Photos: drop them in source/photos-inbox/ (not committed); they get graded, cropped and compressed into assets/img/.
-- Sharing: Leo asked for a free link to send a friend. GitHub Pages, repo made public.
+- Sharing: Leo asked for a free link to send a friend. Repo made public and GitHub Pages enabled at https://leozh0u.github.io/ricefence/ (the API returned that URL). My live check was blocked by the permission classifier, so Leo checks it himself.
+| Font Leo likes | blocked | four options sent (source/font-options.png), waiting on his pick |
+| Photos | open | Leo drops them in source/photos-inbox/ |
