@@ -5,11 +5,11 @@
 const FORM_URL = '';
 
 // Frame counts must match what scripts/frames.sh and scripts/sequence.sh print.
-const HERO_FRAMES = 175;
+const HERO_FRAMES = 172;
 const SALUTE_FRAMES = 70;
 const EXTEND_FRAMES = 62;
 
-const BG = '#07090d';
+const BG = '#08090d';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mobile = matchMedia('(max-width: 700px)').matches;
 const hasGsap = window.gsap && window.ScrollTrigger;
@@ -102,28 +102,19 @@ function placeExtend(ctx, img, W, H) {
   const x = W - w, y = H - h;
   ctx.drawImage(img, x, y, w, h);
   const fl = ctx.createLinearGradient(x, 0, x + w * 0.28, 0);
-  fl.addColorStop(0, BG); fl.addColorStop(1, 'rgba(7,9,13,0)');
+  fl.addColorStop(0, BG); fl.addColorStop(1, 'rgba(8,9,13,0)');
   ctx.fillStyle = fl; ctx.fillRect(x - 1, y, w * 0.28 + 1, h);
   const ft = ctx.createLinearGradient(0, y, 0, y + h * 0.3);
-  ft.addColorStop(0, BG); ft.addColorStop(1, 'rgba(7,9,13,0)');
+  ft.addColorStop(0, BG); ft.addColorStop(1, 'rgba(8,9,13,0)');
   ctx.fillStyle = ft; ctx.fillRect(x, y - 1, w, h * 0.3 + 1);
 }
 
-// The intro fencer: fills a phone screen, stands in a dark room on desktop.
+// The intro fencer fills the screen. Zoom pushes in on the lunge, shift slides
+// the fencer right to make room for the title.
 function placeHero(ctx, img, W, H, v) {
-  const ir = img.naturalWidth / img.naturalHeight;
-  let h = (mobile ? Math.max(H, W / ir) : H * 1.04) * v.zoom;
-  const w = h * ir;
-  const x = (W - w) / 2 + v.shift * W, y = (H - h) / 2 + (mobile ? 0 : H * 0.02);
-  ctx.drawImage(img, x, y, w, h);
-  if (mobile) return;
-  const fade = w * 0.22;
-  const l = ctx.createLinearGradient(x, 0, x + fade, 0);
-  l.addColorStop(0, BG); l.addColorStop(1, 'rgba(7,9,13,0)');
-  ctx.fillStyle = l; ctx.fillRect(x - 1, 0, fade + 1, H);
-  const r = ctx.createLinearGradient(x + w - fade, 0, x + w, 0);
-  r.addColorStop(0, 'rgba(7,9,13,0)'); r.addColorStop(1, BG);
-  ctx.fillStyle = r; ctx.fillRect(x + w - fade, 0, fade + 1, H);
+  const s = Math.max(W / img.naturalWidth, H / img.naturalHeight) * v.zoom;
+  const w = img.naturalWidth * s, h = img.naturalHeight * s;
+  ctx.drawImage(img, (W - w) / 2 + v.shift * W, (H - h) / 2, w, h);
 }
 
 const hero = sequence(document.getElementById('hero'), `assets/hero/${mobile ? 'mobile' : 'desktop'}`, HERO_FRAMES, placeHero);

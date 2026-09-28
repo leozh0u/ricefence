@@ -22,3 +22,7 @@ Newest last. Enough to pick this up in a fresh session.
   - Photos: six studio stills.
 - Rice navy now on the Join buttons and the LPAP band. Reduced motion loads only the still frames it shows (about 0.27 MB first screen).
 - ChatGPT: not needed for the site. Offered Leo a prompt for a link-preview card only.
+- Critic v2 round 1: 15/17 pass. Failed: intro fencer too dim and boxed (foggy-gym clip), Demos and "club sport" lines unsourced. Sources added to HANDOVER (Leo asked for outreach; Rice Rec directory lists Fencing).
+- Intro swapped to cottonbro studio lunge (Pexels 10340306): en garde, then lunge at camera, on pure black. Landscape, so it fills the screen on desktop; phones use a 9:16 crop centred on the fencer. Black floor clamped to the page colour so no frame edge shows.
+- Leo: type was too serious. Headings now Fraunces (soft serif, mixed case), labels lowercase, pill buttons. Copy: "Fence for the Owls", bring a friend from your college, "you get to hit your friends", FAQ on safety (IOC injury data) and fitness.
+- Logo: Leo will generate one in ChatGPT (prompt given: owl in a fencing mask, navy and grey, no text, not Rice's official owl).

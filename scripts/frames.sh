@@ -1,33 +1,32 @@
 #!/bin/sh
-# Turn a clip into the hero frame sequence.
-# usage: scripts/frames.sh <video> [start_seconds] [duration_seconds]
-# Writes assets/hero/{desktop,mobile}/NNN.webp and assets/hero/poster.webp,
+# Turn a landscape clip into the intro frame sequence.
+# usage: scripts/frames.sh <video> [start_seconds] [duration_seconds] [fps]
+# Writes assets/hero/desktop (full frame) and assets/hero/mobile (centre 9:16 crop),
 # then prints the frame count to put in HERO_FRAMES in script.js.
 set -e
-IN="$1"; SS="${2:-0}"; T="${3:-2.4}"
-[ -f "$IN" ] || { echo "usage: $0 <video> [start] [duration]"; exit 1; }
+IN="$1"; SS="${2:-0.6}"; T="${3:-2.7}"; FPS="${4:-65}"
+[ -f "$IN" ] || { echo "usage: $0 <video> [start] [duration] [fps]"; exit 1; }
 cd "$(dirname "$0")/.."
 TMP=$(mktemp -d)
 
-# Dark grade: crush the grey haze, keep the whites, cool the shadows.
-GRADE="curves=all='0/0 0.3/0.02 0.42/0.05 0.48/0.1 0.54/0.44 0.62/0.8 1/1',eq=saturation=0.15,colorbalance=bs=0.05:bm=0.02,vignette=angle=PI/3"
-# 25fps stock is too coarse to scrub, so interpolate to 75fps.
-INTERP="minterpolate=fps=75:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1"
+# Grade to black and white on true black. The floor is clamped to the page
+# background so there is no visible edge around the frame.
+GRADE="curves=all='0/0 0.2/0 0.32/0.03 0.5/0.35 0.7/0.85 1/1',eq=saturation=0.1,lutrgb=r='max(val\,8)':g='max(val\,9)':b='max(val\,13)'"
+# 25fps stock is too coarse to scrub, so interpolate.
+INTERP="minterpolate=fps=$FPS:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1"
 
-ffmpeg -v error -y -ss "$SS" -t "$T" -i "$IN" \
-  -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,$INTERP,$GRADE" \
-  -q:v 2 "$TMP/%03d.png"
+ffmpeg -v error -y -ss "$SS" -t "$T" -i "$IN" -vf "scale=1920:-2:flags=lanczos,$INTERP,$GRADE" "$TMP/%03d.png"
 
 rm -rf assets/hero/desktop assets/hero/mobile
 mkdir -p assets/hero/desktop assets/hero/mobile
 n=0
 for f in "$TMP"/*.png; do
   i=$(printf %03d $n)
-  cwebp -quiet -q 72 "$f" -o "assets/hero/desktop/$i.webp"
-  cwebp -quiet -q 68 -resize 540 960 "$f" -o "assets/hero/mobile/$i.webp"
+  cwebp -quiet -q 74 "$f" -o "assets/hero/desktop/$i.webp"
+  # 9:16 crop for phones, centred on the fencer (x ≈ 1105 of 1920).
+  cwebp -quiet -q 60 -crop 835 0 540 1012 -resize 540 1012 "$f" -o "assets/hero/mobile/$i.webp"
   n=$((n+1))
 done
-cwebp -quiet -q 80 "$TMP/001.png" -o assets/hero/poster.webp
 rm -rf "$TMP"
 echo "HERO_FRAMES = $n"
 du -sh assets/hero/desktop assets/hero/mobile
