@@ -69,3 +69,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - Leo asked for rule-learning resources under Weapons: added "Learn the rules" (Vox explainer, FIE foil/épée/sabre explainers, Ninh Ly on right of way, USA Fencing Fencing 101 and rulebook). Links checked 27 Sept 2026.
 - Leo's poster has an owl-and-crossed-blades crest with blackletter "Rice Fencing Club". Asked whether that's the club's logo.
 | Learn-the-rules links under Weapons | done | 7 links, sources checked; captured at 1440 and 375 |
+- Leo: the font he disliked was the nav (Archivo). Nav links and buttons now use Young Serif like the headings.
+- Leo liked the title overlapping the fencer in the font-options image: title is now two lines ("Rice / Fencing Club"), up to 196px, and the fencer only shifts slightly so the title runs across the jacket. Canvas stays at 0.85 behind it; tagline has a text shadow.
+- Leo: FAQ answers sounded AI. Rewritten plainly, no quips. Saturday rotation used as the "which weapon" answer.
+- Logo: Leo wants a simpler version of the owl-and-crossed-blades crest from the club poster, via ChatGPT.
