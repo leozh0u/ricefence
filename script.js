@@ -1,12 +1,15 @@
-// Rice Fencing Club. Scroll-scrubbed intro plus a few small scroll moments.
+// Rice Fencing Club. Scroll-scrubbed footage plus a few small scroll moments.
 
 // Paste the Google Form link here once it exists. Until then the sign-up
 // button opens an email to the club.
 const FORM_URL = '';
 
-// Must match the count printed by scripts/frames.sh.
+// Frame counts must match what scripts/frames.sh and scripts/sequence.sh print.
 const HERO_FRAMES = 175;
+const SALUTE_FRAMES = 70;
+const EXTEND_FRAMES = 62;
 
+const BG = '#07090d';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mobile = matchMedia('(max-width: 700px)').matches;
 const hasGsap = window.gsap && window.ScrollTrigger;
@@ -16,6 +19,129 @@ if (FORM_URL) {
   s.href = FORM_URL;
   s.target = '_blank';
   s.rel = 'noopener';
+}
+
+// A sequence of still frames drawn to a canvas. Frame 0 loads first, then a
+// coarse pass so scrubbing works early, then the gaps fill in.
+function sequence(canvas, dir, count, place) {
+  const ctx = canvas.getContext('2d');
+  const frames = new Array(count);
+  const loaded = new Uint8Array(count);
+  const view = { frame: 0, zoom: 1, shift: 0 };
+  let drawn = -1;
+  const src = i => `${dir}/${String(i).padStart(3, '0')}.webp`;
+
+  function load(i) {
+    if (frames[i]) return Promise.resolve();
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src(i);
+    frames[i] = img;
+    return img.decode().then(() => {
+      loaded[i] = 1;
+      if (Math.abs(i - Math.round(view.frame)) < 8) draw(true);
+    }).catch(() => {});
+  }
+
+  // With only = true, load just the frame the view is on (the reduced-motion still).
+  function start(only) {
+    if (only) return load(Math.round(view.frame));
+    load(0).then(async () => {
+      for (const step of [16, 8, 4, 2, 1]) {
+        const batch = [];
+        for (let i = 0; i < count; i += step) batch.push(load(i));
+        await Promise.all(batch);
+      }
+    });
+  }
+
+  function nearest(i) {
+    for (let d = 0; d < count; d++) {
+      if (i - d >= 0 && loaded[i - d]) return i - d;
+      if (i + d < count && loaded[i + d]) return i + d;
+    }
+    return -1;
+  }
+
+  function draw(force) {
+    const i = nearest(Math.min(count - 1, Math.round(view.frame)));
+    if (i < 0 || (i === drawn && !force)) return;
+    drawn = i;
+    const img = frames[i];
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, W, H);
+    place(ctx, img, W, H, view);
+  }
+
+  function size() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(canvas.clientWidth * dpr);
+    canvas.height = Math.round(canvas.clientHeight * dpr);
+    draw(true);
+  }
+
+  addEventListener('resize', size);
+  size();
+  return { view, draw, start, last: count - 1 };
+}
+
+// Scale an image to cover the box, anchored at (ax, ay) from 0 to 1.
+function cover(ctx, img, W, H, ax = 0.5, ay = 0.5) {
+  const s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+  const w = img.naturalWidth * s, h = img.naturalHeight * s;
+  ctx.drawImage(img, (W - w) * ax, (H - h) * ay, w, h);
+}
+
+// The arm and blade: bottom-right on desktop so the blade passes over the
+// text instead of through it, full width on phones where the text sits below.
+function placeExtend(ctx, img, W, H) {
+  if (mobile) return cover(ctx, img, W, H);
+  const s = Math.max(W / img.naturalWidth, H / img.naturalHeight) * 0.8;
+  const w = img.naturalWidth * s, h = img.naturalHeight * s;
+  const x = W - w, y = H - h;
+  ctx.drawImage(img, x, y, w, h);
+  const fl = ctx.createLinearGradient(x, 0, x + w * 0.28, 0);
+  fl.addColorStop(0, BG); fl.addColorStop(1, 'rgba(7,9,13,0)');
+  ctx.fillStyle = fl; ctx.fillRect(x - 1, y, w * 0.28 + 1, h);
+  const ft = ctx.createLinearGradient(0, y, 0, y + h * 0.3);
+  ft.addColorStop(0, BG); ft.addColorStop(1, 'rgba(7,9,13,0)');
+  ctx.fillStyle = ft; ctx.fillRect(x, y - 1, w, h * 0.3 + 1);
+}
+
+// The intro fencer: fills a phone screen, stands in a dark room on desktop.
+function placeHero(ctx, img, W, H, v) {
+  const ir = img.naturalWidth / img.naturalHeight;
+  let h = (mobile ? Math.max(H, W / ir) : H * 1.04) * v.zoom;
+  const w = h * ir;
+  const x = (W - w) / 2 + v.shift * W, y = (H - h) / 2 + (mobile ? 0 : H * 0.02);
+  ctx.drawImage(img, x, y, w, h);
+  if (mobile) return;
+  const fade = w * 0.22;
+  const l = ctx.createLinearGradient(x, 0, x + fade, 0);
+  l.addColorStop(0, BG); l.addColorStop(1, 'rgba(7,9,13,0)');
+  ctx.fillStyle = l; ctx.fillRect(x - 1, 0, fade + 1, H);
+  const r = ctx.createLinearGradient(x + w - fade, 0, x + w, 0);
+  r.addColorStop(0, 'rgba(7,9,13,0)'); r.addColorStop(1, BG);
+  ctx.fillStyle = r; ctx.fillRect(x + w - fade, 0, fade + 1, H);
+}
+
+const hero = sequence(document.getElementById('hero'), `assets/hero/${mobile ? 'mobile' : 'desktop'}`, HERO_FRAMES, placeHero);
+const salute = sequence(document.getElementById('salute'), 'assets/seq/salute', SALUTE_FRAMES, (ctx, img, W, H) => cover(ctx, img, W, H));
+const extend = sequence(document.getElementById('extend'), 'assets/seq/extend', EXTEND_FRAMES, placeExtend);
+if (hasGsap && !reduced) hero.start();
+
+// The two later sequences load when they get close.
+if ('IntersectionObserver' in window) {
+  const near = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    (e.target.id === 'salute' ? salute : extend).start(reduced || !hasGsap);
+    near.unobserve(e.target);
+  }), { rootMargin: '100% 0px' });
+  near.observe(document.getElementById('salute'));
+  near.observe(document.getElementById('extend'));
+} else {
+  salute.start(reduced || !hasGsap); extend.start(reduced || !hasGsap);
 }
 
 // Smooth scroll. Wheel only; touch keeps native scrolling.
@@ -56,7 +182,7 @@ function onScroll() {
 addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// Ambient videos play only while on screen.
+// The practice loop plays only while on screen.
 const videos = document.querySelectorAll('video');
 if (!reduced && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {
@@ -68,20 +194,32 @@ if (!reduced && 'IntersectionObserver' in window) {
   videos.forEach(v => io.observe(v));
 }
 
-// Weapons light up as they come into view.
 const weapons = document.querySelectorAll('.weapon');
-if (reduced || !hasGsap) {
-  weapons.forEach(w => w.classList.add('lit'));
-}
 
 if (!hasGsap || reduced) {
+  // Still versions: the intro poster, and the salute and extension at their end pose.
   document.documentElement.classList.add('no-canvas');
   const title = document.querySelector('.title');
   title.style.opacity = 1;
   title.style.visibility = 'visible';
+  weapons.forEach(w => w.classList.add('lit'));
+  salute.view.frame = salute.last;
+  extend.view.frame = extend.last;
 } else {
   gsap.registerPlugin(ScrollTrigger);
-  initHero();
+  introTimeline();
+
+  // The blade comes up to salute as the Join section arrives.
+  gsap.to(salute.view, {
+    frame: salute.last, ease: 'none', onUpdate: () => salute.draw(),
+    scrollTrigger: { trigger: '.salute', start: 'top 90%', end: 'center 45%', scrub: 0.4 },
+  });
+
+  // The arm and blade reach across the Compete section.
+  gsap.to(extend.view, {
+    frame: extend.last, ease: 'none', onUpdate: () => extend.draw(),
+    scrollTrigger: { trigger: '#compete', start: 'top 85%', end: mobile ? 'bottom 60%' : 'center 40%', scrub: 0.4 },
+  });
 
   ScrollTrigger.batch(weapons, {
     start: 'top 75%',
@@ -108,92 +246,16 @@ if (!hasGsap || reduced) {
   });
 }
 
-function initHero() {
-  const canvas = document.getElementById('hero');
-  const ctx = canvas.getContext('2d');
-  const dir = mobile ? 'mobile' : 'desktop';
-  const frames = new Array(HERO_FRAMES);
-  const loaded = new Uint8Array(HERO_FRAMES);
-  const state = { frame: 0, zoom: 1, shift: 0 };
-  let drawn = -1;
-
-  const src = i => `assets/hero/${dir}/${String(i).padStart(3, '0')}.webp`;
-
-  function load(i) {
-    if (frames[i]) return Promise.resolve();
-    const img = new Image();
-    img.decoding = 'async';
-    img.src = src(i);
-    frames[i] = img;
-    return img.decode().then(() => {
-      loaded[i] = 1;
-      if (Math.abs(i - Math.round(state.frame)) < 8) draw(true);
-    }).catch(() => {});
-  }
-
-  // First frame, then a coarse pass so scrubbing works early, then fill in.
-  load(0).then(async () => {
-    for (const step of [16, 8, 4, 2, 1]) {
-      const batch = [];
-      for (let i = 0; i < HERO_FRAMES; i += step) batch.push(load(i));
-      await Promise.all(batch);
-    }
-  });
-
-  function nearest(i) {
-    for (let d = 0; d < HERO_FRAMES; d++) {
-      if (i - d >= 0 && loaded[i - d]) return i - d;
-      if (i + d < HERO_FRAMES && loaded[i + d]) return i + d;
-    }
-    return -1;
-  }
-
-  function size() {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = Math.round(canvas.clientWidth * dpr);
-    canvas.height = Math.round(canvas.clientHeight * dpr);
-    draw(true);
-  }
-
-  function draw(force) {
-    const i = nearest(Math.round(state.frame));
-    if (i < 0 || (i === drawn && !force)) return;
-    drawn = i;
-    const img = frames[i];
-    const W = canvas.width, H = canvas.height;
-    const ir = img.naturalWidth / img.naturalHeight;
-    // Portrait footage: cover the screen on phones, fit the height on desktop
-    // and let the dark edges fade into the room.
-    let h = mobile ? Math.max(H, W / ir) : H * 1.04;
-    h *= state.zoom;
-    const w = h * ir;
-    const x = (W - w) / 2 + state.shift * W, y = (H - h) / 2 + (mobile ? 0 : H * 0.02);
-    ctx.fillStyle = '#07090d';
-    ctx.fillRect(0, 0, W, H);
-    ctx.drawImage(img, x, y, w, h);
-    if (!mobile) {
-      const fade = w * 0.22;
-      const l = ctx.createLinearGradient(x, 0, x + fade, 0);
-      l.addColorStop(0, '#07090d'); l.addColorStop(1, 'rgba(7,9,13,0)');
-      ctx.fillStyle = l; ctx.fillRect(x - 1, 0, fade + 1, H);
-      const r = ctx.createLinearGradient(x + w - fade, 0, x + w, 0);
-      r.addColorStop(0, 'rgba(7,9,13,0)'); r.addColorStop(1, '#07090d');
-      ctx.fillStyle = r; ctx.fillRect(x + w - fade, 0, fade + 1, H);
-    }
-  }
-
-  addEventListener('resize', size);
-  size();
-
-  const last = HERO_FRAMES - 1;
+function introTimeline() {
+  const v = hero.view;
   const tl = gsap.timeline({
     defaults: { ease: 'none' },
     scrollTrigger: { trigger: '.intro', start: 'top top', end: 'bottom bottom', scrub: true },
   });
 
-  // Timeline runs 0 to 1 over the whole intro scroll.
-  tl.to(state, { frame: last, duration: 0.7, onUpdate: () => draw() }, 0)
-    .to(state, { zoom: 1.16, duration: 0.3, ease: 'power2.in', onUpdate: () => draw(true) }, 0.4)
+  // The timeline runs 0 to 1 over the whole intro scroll.
+  tl.to(v, { frame: hero.last, duration: 0.7, onUpdate: () => hero.draw() }, 0)
+    .to(v, { zoom: 1.16, duration: 0.3, ease: 'power2.in', onUpdate: () => hero.draw(true) }, 0.4)
     .to('.cue', { opacity: 0, duration: 0.04 }, 0.02)
     .fromTo('.cmd-1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.05 }, 0.02)
     .to('.cmd-1', { opacity: 0, y: -30, duration: 0.05 }, 0.14)
@@ -202,11 +264,11 @@ function initHero() {
     .fromTo('.cmd-3', { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.03 }, 0.35)
     .to('.cmd-3', { opacity: 0, duration: 0.05 }, 0.47)
     // The touch: the green lamp on the scoring box.
-    .to('.lamp', { opacity: 1, duration: 0.015 }, 0.6)
-    .to('.lamp', { opacity: 0, duration: 0.08 }, 0.64)
+    .to('.lamp', { opacity: 1, duration: 0.01 }, 0.6)
+    .to('.lamp', { opacity: 0, duration: 0.08 }, 0.65)
     .to('#hero', { opacity: mobile ? 0.35 : 0.6, duration: 0.1 }, 0.72)
-    .to(state, { shift: mobile ? 0 : 0.2, zoom: 1.02, duration: 0.12, ease: 'power2.inOut', onUpdate: () => draw(true) }, 0.72)
-    .to('.skip-intro', { opacity: 0, duration: 0.05 }, 0.74)
+    .to(v, { shift: mobile ? 0 : 0.2, zoom: 1.02, duration: 0.12, ease: 'power2.inOut', onUpdate: () => hero.draw(true) }, 0.72)
+    .to('.skip-intro', { autoAlpha: 0, duration: 0.05 }, 0.74)
     .fromTo('.title', { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.1 }, 0.76)
     .to({}, { duration: 0.14 }, 0.86);
 }

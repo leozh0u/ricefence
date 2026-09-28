@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero/desktop/000.webp" media="(min-width: 701px)">
 <link rel="preload" as="image" href="assets/hero/mobile/000.webp" media="(max-width: 700px)">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -45,7 +45,7 @@
   <div class="stage">
     <canvas id="hero" aria-hidden="true"></canvas>
     <picture><source media="(max-width: 700px)" srcset="assets/hero/mobile/000.webp"><img class="poster" src="assets/hero/desktop/000.webp" alt=""></picture>
-    <div class="lamp lamp-green" aria-hidden="true"></div>
+    <div class="lamp" aria-hidden="true"><i></i></div>
 
     <p class="cmd cmd-1" aria-hidden="true">En garde.</p>
     <p class="cmd cmd-2" aria-hidden="true">Prêts?</p>
@@ -55,7 +55,7 @@
       <h1>Rice<br>Fencing<br>Club</h1>
       <p class="title-line">Foil, épée and sabre at Rice University. Beginners are welcome and the club lends you the gear.</p>
       <div class="title-actions">
-        <a class="btn btn-solid" href="#join">Join the club</a>
+        <a class="btn btn-rice" href="#join">Join the club</a>
         <a class="btn btn-line" href="#practice">Practice times</a>
       </div>
     </div>
@@ -67,44 +67,57 @@
 
 <section class="practice" id="practice">
   <div class="wrap practice-grid">
-    <div>
+    <div class="practice-text">
       <h2 class="kicker">Practice</h2>
       <p class="when reveal">Tuesday<br>&amp; Thursday</p>
       <p class="time">7:30 to 9:30 pm</p>
       <p class="where">MAC gym, Gibbs Recreation and Wellness Center</p>
       <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Gibbs+Recreation+and+Wellness+Center+Rice+University" target="_blank" rel="noopener">Open in Maps</a>
+      <div class="first">
+        <h3>Your first practice</h3>
+        <p>You don't need to own anything. The club provides the equipment and lessons for new fencers, with coaches who have fenced and coached at the international level.</p>
+        <p>Wear athletic clothes, long pants if you have them, and bring water. We fence all three weapons, so ask to try whichever one you're curious about.</p>
+      </div>
     </div>
-    <div class="first">
-      <h3>Your first practice</h3>
-      <p>You don't need to own anything. The club provides equipment and lessons for new fencers, and our coaches have fenced and coached at the international level.</p>
-      <p>Wear athletic clothes, long pants if you have them, and bring water. We fence all three weapons, so ask to try whichever one you're curious about.</p>
+    <div class="practice-media" aria-hidden="true">
+      <video src="assets/video/profile.mp4" poster="assets/video/profile.webp" muted loop playsinline preload="none"></video>
     </div>
   </div>
 </section>
 
 <section class="join" id="join">
-  <video class="join-video" src="assets/video/mask.mp4" poster="assets/video/mask.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
-  <div class="wrap">
-    <h2 class="kicker">Join</h2>
-    <ol class="steps reveal">
-      <li>
-        <span class="step-n">01</span>
-        <h3>Sign up</h3>
-        <p>Let the officers know you're coming.</p>
-        <a class="btn btn-solid" id="signup" href="mailto:rfc@rice.edu?subject=Joining%20Rice%20Fencing">Sign up</a>
-      </li>
-      <li>
-        <span class="step-n">02</span>
-        <h3>Get on the GroupMe</h3>
-        <p>The club posts updates there.</p>
-        <a class="btn btn-line" href="https://groupme.com/join_group/89439129/sAFIJNvG" target="_blank" rel="noopener">Join the GroupMe</a>
-      </li>
-      <li>
-        <span class="step-n">03</span>
-        <h3>Come to practice</h3>
-        <p>Tuesday or Thursday at 7:30 in the MAC gym. Tell whoever is running practice that it's your first time.</p>
-      </li>
-    </ol>
+  <div class="wrap join-grid">
+    <div class="salute" aria-hidden="true">
+      <canvas id="salute"></canvas>
+    </div>
+    <div class="join-text">
+      <h2 class="kicker">Join</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-n">01</span>
+          <div>
+            <h3>Sign up</h3>
+            <p>Let the officers know you're coming.</p>
+            <a class="btn btn-solid" id="signup" href="mailto:rfc@rice.edu?subject=Joining%20Rice%20Fencing">Sign up</a>
+          </div>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <div>
+            <h3>Get on the GroupMe</h3>
+            <p>The club posts updates there.</p>
+            <a class="btn btn-line" href="https://groupme.com/join_group/89439129/sAFIJNvG" target="_blank" rel="noopener">Join the GroupMe</a>
+          </div>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <div>
+            <h3>Come to practice</h3>
+            <p>Tuesday or Thursday at 7:30 in the MAC gym. Tell whoever is running practice that it's your first time.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -131,7 +144,7 @@
           <circle class="guard" cx="31" cy="112" r="6"/>
         </svg>
         <h3>Foil</h3>
-        <p>Point only. The target is the torso, and right of way decides the touch when both fencers hit.</p>
+        <p>Point only. The target is the torso, covered by a conductive jacket called a lamé, and right of way decides the touch when both fencers hit.</p>
       </article>
 
       <article class="weapon" data-weapon="epee">
@@ -157,19 +170,19 @@
           <circle class="guard" cx="31" cy="112" r="6"/>
         </svg>
         <h3>Sabre</h3>
-        <p>Cuts and thrusts. Everything above the waist counts, arms and head included, and right of way applies.</p>
+        <p>Cuts and thrusts. Everything above the waist counts, arms and head included, and right of way applies here too.</p>
       </article>
 
     </div>
-    <p class="row">Right of way is the rule that gives the touch to whoever started the attack, unless the other fencer parried it first.</p>
+    <p class="row">Right of way goes to the fencer who starts the attack. If that attack misses or gets parried, right of way passes to the other fencer. All three weapons are fenced on a 14-meter piste and scored electrically.</p>
   </div>
 </section>
 
 <section class="compete" id="compete">
-  <video class="compete-video" src="assets/video/bouts.mp4" poster="assets/video/bouts.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
+  <canvas id="extend" aria-hidden="true"></canvas>
   <div class="wrap compete-inner">
     <h2 class="kicker">Compete</h2>
-    <p class="lead reveal">We fence for Rice in SWIFA, the Southwest Intercollegiate Fencing Association, against schools across Texas and Louisiana including UT Austin, Texas A&amp;M, Houston and Tulane.</p>
+    <p class="lead reveal">We fence for Rice in SWIFA, the Southwest Intercollegiate Fencing Association.</p>
     <p>Members also fence USA Fencing tournaments, in all three weapons.</p>
   </div>
 </section>
@@ -179,13 +192,12 @@
     <h2 class="kicker">Photos</h2>
   </div>
   <div class="strip" id="strip">
-    <figure class="shot tall"><img src="assets/img/mask-off.webp" alt="A fencer holding her mask after a bout" decoding="async" width="788" height="1400"></figure>
-    <figure class="shot wide"><img src="assets/img/bout-strip.webp" alt="Two fencers on a blue strip, scoreboard behind them" decoding="async" width="1400" height="788"></figure>
-    <figure class="shot tall"><img src="assets/img/salute-pair.webp" alt="Two fencers facing each other before a bout" decoding="async" width="788" height="1400"></figure>
-    <figure class="shot wide"><img src="assets/img/lunge-profile.webp" alt="A fencer in a lunge, side view" decoding="async" width="1400" height="788"></figure>
-    <figure class="shot tall"><img src="assets/img/masks-floor.webp" alt="Fencing masks set down on the floor" decoding="async" width="788" height="1400"></figure>
-    <figure class="shot wide"><img src="assets/img/pair.webp" alt="Two fencers with masks on, blades up" decoding="async" width="1400" height="788"></figure>
-    <figure class="shot tall"><img src="assets/img/lightbox.webp" alt="A lightbox sign reading Fencing next to masks and blades" decoding="async" width="788" height="1400"></figure>
+    <figure class="shot tall"><img src="assets/img/salute-tall.webp" alt="A masked fencer holding her foil upright" decoding="async" width="844" height="1600"></figure>
+    <figure class="shot wide"><img src="assets/img/shoulders.webp" alt="A fencer in her mask with the blade resting across her shoulders" decoding="async" width="1600" height="844"></figure>
+    <figure class="shot tall"><img src="assets/img/mask-off.webp" alt="A fencer with her mask under her arm" decoding="async" width="844" height="1600"></figure>
+    <figure class="shot wide"><img src="assets/img/eyes.webp" alt="A close view through the mesh of a fencing mask" decoding="async" width="1600" height="844"></figure>
+    <figure class="shot tall"><img src="assets/img/extend-tall.webp" alt="A masked fencer with her blade raised" decoding="async" width="844" height="1600"></figure>
+    <figure class="shot wide"><img src="assets/img/behind-neck.webp" alt="A fencer holding her blade behind her neck" decoding="async" width="1600" height="844"></figure>
   </div>
 </section>
 
@@ -212,10 +224,6 @@
       <summary>Which weapon should I pick?</summary>
       <p>Whichever looks most fun. The club fences all three, and LPAP 172 teaches foil if you want a structured start. You can switch later.</p>
     </details>
-    <details>
-      <summary>Who can join?</summary>
-      <p>Anyone in the Rice community, whatever your level.</p>
-    </details>
   </div>
 </section>
 
@@ -231,7 +239,7 @@
     <div class="small">
       <p>Rice Fencing Club<br>6100 Main St, MS-523<br>Houston, TX 77005</p>
       <p>A Rice University club sport.</p>
-      <p class="credits">Footage from Pexels by Tima Miroshnichenko, cottonbro studio, Artem Podrez and Ahmet Kurt.</p>
+      <p class="credits">Placeholder footage from Pexels by cottonbro studio and Tima Miroshnichenko.</p>
     </div>
   </div>
 </footer>
@@ -240,6 +248,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-<script src="script.js?v=1"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>

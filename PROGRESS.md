@@ -14,3 +14,11 @@ Newest last. Enough to pick this up in a fresh session.
 - Photos: pinned horizontal strip on desktop, swipe on phones. Stock stills, placeholders.
 - Club facts from OwlNest (rfc@rice.edu, GroupMe, gear and lessons provided) and the Rice catalogue (LPAP 172/173). Sources listed in HANDOVER.md.
 - Quality loop: /until-good in checklist mode, run files in `runs/2026-09-27-site/`.
+- Critic round 1 (checklist): 11/16 pass. Failed: unsourced SWIFA school list, no Rice navy on first screens, 14-15px text, invisible focus on hidden Skip intro, right-of-way wording. All fixed.
+- Leo's steer mid-run: standalone fencers on pure black (his references: studio B&W, fencer on one side, salute with blade vertical), not gyms or bouts. Replaced the gym/bout footage with the cottonbro studio series (Pexels 103403xx), graded to black.
+  - Practice: mask-profile loop (10340309, ping-pong so it loops cleanly).
+  - Join: salute scrub, blade rises to vertical as the section arrives (10340304, `scripts/sequence.sh`).
+  - Compete: arm and blade reach across the section (10340301).
+  - Photos: six studio stills.
+- Rice navy now on the Join buttons and the LPAP band. Reduced motion loads only the still frames it shows (about 0.27 MB first screen).
+- ChatGPT: not needed for the site. Offered Leo a prompt for a link-preview card only.

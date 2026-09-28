@@ -17,6 +17,7 @@ Who owns what, so the site survives officer changes.
 - Equipment and lessons for new fencers, international-level coaches, SWIFA, GroupMe, rfc@rice.edu, mailing address: the club's OwlNest page.
 - LPAP 172 and 173: Rice General Announcements, LPAP course list.
 - Fences all three weapons, enters USA Fencing tournaments: the old club site.
+- Foil, épée and sabre target areas, right of way, the 14 m piste: the FIE rules, not club-specific.
 
 ## Not on the site yet, needs an officer
 
@@ -25,4 +26,5 @@ Who owns what, so the site survives officer changes.
 - Coach names
 - Results and tournament dates
 - Instagram handle, if the club has one
+- Who can join (grad students, staff?) and which SWIFA schools the club usually fences
 - Whether the Rice name needs sign-off from Rice Club Sports before launch (no Rice logo is used)
