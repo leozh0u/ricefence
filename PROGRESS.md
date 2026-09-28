@@ -27,3 +27,10 @@ Newest last. Enough to pick this up in a fresh session.
 - Leo: type was too serious. Headings now Fraunces (soft serif, mixed case), labels lowercase, pill buttons. Copy: "Fence for the Owls", bring a friend from your college, "you get to hit your friends", FAQ on safety (IOC injury data) and fitness.
 - Logo: Leo will generate one in ChatGPT (prompt given: owl in a fencing mask, navy and grey, no text, not Rice's official owl).
 - Critic v3 round 1: all but 3 pass. Fixed: phone commands moved to the dark band above the mask, reduced-motion poster dimmed (0.35 phone, 0.6 desktop, fencer pushed right), section labels keep their case (LPAP). The lunge now recovers to a sharp en garde (frame 110) behind the title, as the end of the source clip is out of focus.
+- Until-good outcome (run v3): **won**. Verdict pass: all four gaps resolved, no regressions, all musts pass. Evidence in the session scratchpad (pw/vfin). Runs v1 and v2 were superseded by Leo's steers (standalone-on-black imagery, relaxed type), not stalled.
+- Look at first: the intro on a phone, then the Join salute.
+
+## Next
+- Leo: generate the logo in ChatGPT and send options; confirm practice times with the officers; make the Google Form and paste its link into FORM_URL.
+- Then: buy ricefence.com, turn on GitHub Pages (repo must go public, or use Cloudflare Pages), add the CNAME.
+- Photoshoot replaces the Pexels footage: `scripts/frames.sh` for the intro, `scripts/sequence.sh` for the salute and extension.
