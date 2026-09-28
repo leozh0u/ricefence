@@ -35,3 +35,21 @@ Newest last. Enough to pick this up in a fresh session.
 - Then: buy ricefence.com, turn on GitHub Pages (repo must go public, or use Cloudflare Pages), add the CNAME.
 - Photoshoot replaces the Pexels footage: `scripts/frames.sh` for the intro, `scripts/sequence.sh` for the salute and extension.
 - Design hook flagged Fraunces as overused; swapped to Young Serif (single weight, no italic, so the referee commands are upright).
+
+## Ledger (2026-09-27)
+
+Leo's standing rule: ideas he drops mid-task are judged and folded in if good, and never replace the task in flight.
+
+| Item | State | Check |
+|---|---|---|
+| Plan the site, make ~/Projects/ricefence | done | folder, repo leozh0u/ricefence pushed |
+| Scroll animations with realistic fencers | done | intro, salute, extension scrubs; Playwright captures at 1440/1920/375 |
+| Standalone fencers on pure black (his references) | done | critic v3 item 10a pass |
+| Less serious font, more Rice, chill copy | done | Young Serif, mixed case; critic v3 10b pass; font-swap recapture, 0 errors |
+| /until-good | done | run v3 won, verdict pass: all musts pass, no regressions |
+| /council | dropped | not installed in this setup |
+| Logo | blocked | waiting on Leo's ChatGPT options (prompt given) |
+| Practice times current? | blocked | Leo to confirm with officers |
+| Google Form sign-up | blocked | Leo makes form, paste link into FORM_URL |
+| Buy ricefence.com, deploy | open | after Leo's go-ahead; repo private, Pages needs public or Cloudflare Pages |
+| Photoshoot, swap footage | open | shot list in the plan; scripts ready |
