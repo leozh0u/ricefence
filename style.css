@@ -55,7 +55,9 @@ p { margin: 0 0 1em; }
   transition: background .3s;
 }
 .nav.solid { background: rgba(7, 8, 10, .92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-.brand { display: flex; flex-direction: column; line-height: .9; text-decoration: none; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-owl { width: 46px; height: auto; }
+.brand-words { display: flex; flex-direction: column; line-height: .9; }
 .brand-rice { font: 500 12px var(--mono); color: var(--muted); }
 .brand-fencing {
   font-family: var(--serif); font-weight: 650; font-size: 23px; letter-spacing: -.01em; color: var(--white);
@@ -295,6 +297,7 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 /* Footer */
 
 .footer { padding: clamp(80px, 10vw, 140px) 0 48px; background: #040506; border-top: 1px solid var(--line); }
+.footer-owl { width: 160px; height: auto; margin-bottom: 48px; opacity: .9; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: end; }
 .mail {
   display: inline-block; color: var(--white); text-decoration: none; font-weight: 850;

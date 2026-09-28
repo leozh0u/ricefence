@@ -80,5 +80,10 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Original title back, identically | done | CSS/JS diffed against 89361e3 |
 | FAQ and copy not AI-sounding | done | read back all visible copy; FAQ render captured |
 | Shareable link | blocked | Pages on at leozh0u.github.io/ricefence; my live check was blocked by the permission classifier, Leo to open it |
-| Logo (simpler poster owl) | blocked | prompt given; waiting on Leo's ChatGPT output |
+| Logo (simpler poster owl) | done | traced SVG in nav, footer, favicon, touch icon, share card; captured at 1440 and 375 |
 - Leo: keep the stock fencer intro ("the stock fencer intro is good though"). The club lunge clip is no longer needed for the intro.
+
+## 2026-09-28
+- Logo: Leo's simplified owl-and-foils from ChatGPT (originals moved from Downloads to source/logo/logo-closeup.png and logo-wide.png). Traced with potrace into assets/owl.svg (currentColor) and owl-white.svg. Used in the nav next to the wordmark and in the footer.
+- Favicon: full emblem, white on a navy rounded square (assets/favicon.svg); apple-touch-icon.png at 180px.
+- Share card: assets/og.jpg (owl plus "Rice Fencing Club" in Young Serif, 1200x630), so links sent in chats show a preview.
