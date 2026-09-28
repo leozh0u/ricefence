@@ -49,7 +49,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | /until-good | done | run v3 won, verdict pass: all musts pass, no regressions |
 | /council | dropped | not installed in this setup |
 | Logo | blocked | waiting on Leo's ChatGPT options (prompt given) |
-| Practice times current? | blocked | Leo to confirm with officers |
+| Practice times current? | done | replaced with Leo's club poster schedule; Playwright capture at 1440 and 375 |
 | Google Form sign-up | blocked | Leo makes form, paste link into FORM_URL |
 | Buy ricefence.com, deploy | open | Pages is on at leozh0u.github.io/ricefence; domain still to buy |
 | Photoshoot, swap footage | open | shot list in the plan; scripts ready |
@@ -65,3 +65,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - Sharing: Leo asked for a free link to send a friend. Repo made public and GitHub Pages enabled at https://leozh0u.github.io/ricefence/ (the API returned that URL). My live check was blocked by the permission classifier, so Leo checks it himself.
 | Font Leo likes | blocked | four options sent (source/font-options.png), waiting on his pick |
 | Photos | open | Leo drops them in source/photos-inbox/ |
+- Real schedule from Leo's club poster: Mon 7-9 pm all weapons, Fri 6-8 pm all weapons, Sat 7-9 pm rotating weapon (foil/épée/sabre), all in the Tudor East Gym. Replaced the old Tue/Thu MAC gym times everywhere (Practice, Join, meta description).
+- Leo asked for rule-learning resources under Weapons: added "Learn the rules" (Vox explainer, FIE foil/épée/sabre explainers, Ninh Ly on right of way, USA Fencing Fencing 101 and rulebook). Links checked 27 Sept 2026.
+- Leo's poster has an owl-and-crossed-blades crest with blackletter "Rice Fencing Club". Asked whether that's the club's logo.
+| Learn-the-rules links under Weapons | done | 7 links, sources checked; captured at 1440 and 375 |

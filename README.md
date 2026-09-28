@@ -19,7 +19,7 @@ python3 -m http.server 8766
 ## Common edits
 
 - **Sign-up form:** paste the Google Form link into `FORM_URL` at the top of `script.js`. Until then the button opens an email to rfc@rice.edu.
-- **Practice time or place:** search `index.html` for "7:30". It appears in Practice and in Join.
+- **Practice time or place:** the `schedule` list in the Practice section of `index.html`, plus step 3 of Join.
 - **Photos:** drop a `.webp` into `assets/img/` and copy a `<figure class="shot">` line in `index.html`. Use `tall` for portrait photos and `wide` for landscape.
 - **New intro footage:** `scripts/frames.sh path/to/clip.mp4 <start> <duration>`, then set `HERO_FRAMES` in `script.js` to the number it prints. Portrait video works best.
 - Bump the `?v=` number on `style.css` and `script.js` in `index.html` after changing them, so browsers don't serve the old copy.
