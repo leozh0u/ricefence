@@ -34,3 +34,4 @@ Newest last. Enough to pick this up in a fresh session.
 - Leo: generate the logo in ChatGPT and send options; confirm practice times with the officers; make the Google Form and paste its link into FORM_URL.
 - Then: buy ricefence.com, turn on GitHub Pages (repo must go public, or use Cloudflare Pages), add the CNAME.
 - Photoshoot replaces the Pexels footage: `scripts/frames.sh` for the intro, `scripts/sequence.sh` for the salute and extension.
+- Design hook flagged Fraunces as overused; swapped to Young Serif (single weight, no italic, so the referee commands are upright).

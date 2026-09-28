@@ -11,7 +11,7 @@
   --green: #35c25f;
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --serif: "Fraunces", Georgia, serif;
+  --serif: "Young Serif", Georgia, serif;
   --gutter: clamp(16px, 4vw, 56px);
   --nav-h: 64px;
 }
@@ -29,7 +29,7 @@ body {
 }
 img, video, canvas, svg { display: block; max-width: 100%; }
 a { color: inherit; }
-h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 600; color: var(--white); font-variation-settings: "SOFT" 100; letter-spacing: -.01em; }
+h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 600; color: var(--white); letter-spacing: -.01em; }
 p { margin: 0 0 1em; }
 ::selection { background: var(--navy); color: var(--white); }
 :focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
@@ -59,7 +59,7 @@ p { margin: 0 0 1em; }
 .brand-rice { font: 500 12px var(--mono); color: var(--muted); }
 .brand-fencing {
   font-family: var(--serif); font-weight: 650; font-size: 23px; letter-spacing: -.01em; color: var(--white);
-  font-variation-settings: "SOFT" 100;
+ 
 }
 .nav nav { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 32px); }
 .nav nav a {
@@ -106,9 +106,9 @@ p { margin: 0 0 1em; }
 
 .cmd {
   position: absolute; z-index: 2; margin: 0;
-  font-family: var(--serif); font-weight: 400; font-style: italic; color: var(--white);
+  font-family: var(--serif); font-weight: 400; color: var(--white);
   font-size: clamp(48px, 8vw, 128px); line-height: 1; letter-spacing: -.02em;
-  font-variation-settings: "SOFT" 100;
+ 
   opacity: 0;
 }
 .cmd-1 { left: var(--gutter); top: 30%; }
@@ -185,8 +185,8 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
 .when {
   margin: 0; color: var(--white); font-family: var(--serif); font-weight: 600;
-  font-size: clamp(52px, 7.4vw, 112px); line-height: .95; letter-spacing: -.03em;
-  font-variation-settings: "SOFT" 100;
+  font-size: clamp(48px, 6.4vw, 96px); line-height: .98; letter-spacing: -.03em;
+ 
 }
 .time { margin: 22px 0 6px; font: 500 clamp(22px, 2.6vw, 30px)/1.2 var(--mono); color: var(--white); }
 .where { color: var(--text); margin-bottom: 26px; }
@@ -267,7 +267,7 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 .compete-inner > * { max-width: min(560px, 40vw); }
 .compete .lead {
   color: var(--white); font-weight: 700;
-  font-family: var(--serif); font-weight: 500; font-variation-settings: "SOFT" 100;
+  font-family: var(--serif); font-weight: 500;
   font-size: clamp(28px, 2.9vw, 44px); line-height: 1.1; letter-spacing: -.02em;
   margin-bottom: 20px;
 }
@@ -299,7 +299,7 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 .faq summary {
   list-style: none; cursor: pointer; padding: 24px 40px 24px 0; position: relative;
   font-size: clamp(20px, 2vw, 26px); font-weight: 650; color: var(--white);
-  font-family: var(--serif); font-weight: 500; font-variation-settings: "SOFT" 100;
+  font-family: var(--serif); font-weight: 500;
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
@@ -317,7 +317,7 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: end; }
 .mail {
   display: inline-block; color: var(--white); text-decoration: none; font-weight: 850;
-  font-family: var(--serif); font-weight: 600; font-variation-settings: "SOFT" 100;
+  font-family: var(--serif); font-weight: 600;
   font-size: clamp(40px, 7vw, 104px); line-height: 1; letter-spacing: -.03em;
   border-bottom: 2px solid transparent;
 }
