@@ -72,18 +72,6 @@ p { margin: 0 0 1em; }
 }
 .nav .nav-join:hover { background: var(--white); color: var(--navy); }
 
-/* The piste: a scroll progress bar drawn as a fencing strip */
-.piste {
-  position: absolute; left: var(--gutter); right: var(--gutter); bottom: 0; height: 1px;
-  background: var(--line);
-}
-.piste-mark { position: absolute; bottom: 0; width: 1px; height: 5px; background: #3a404b; }
-.m1 { left: 0; } .m2 { left: 35.7%; } .m3 { left: 50%; height: 8px; background: #555c68; } .m4 { left: 64.3%; } .m5 { right: 0; }
-.piste-fencer {
-  position: absolute; bottom: -2px; left: 0; width: 18px; height: 3px; background: var(--white);
-  transform: translateX(calc(var(--p, 0) * (100cqw - 18px)));
-}
-.piste { container-type: inline-size; }
 
 /* Intro */
 
@@ -137,19 +125,6 @@ p { margin: 0 0 1em; }
 .title-line { margin: 28px 0 28px; max-width: 30em; font-size: 18px; color: var(--text); }
 .title-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-.skip-intro {
-  position: absolute; z-index: 4; right: var(--gutter); bottom: 28px;
-  font: 500 13px var(--mono);
-  color: var(--muted); text-decoration: none; padding: 8px 0;
-}
-.skip-intro:hover { color: var(--white); }
-.cue {
-  position: absolute; z-index: 4; left: 50%; bottom: 28px; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  font: 500 12px var(--mono); color: var(--muted);
-}
-.cue i { width: 1px; height: 44px; background: linear-gradient(var(--muted), transparent); animation: cue 2.2s ease-in-out infinite; transform-origin: top; }
-@keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
 
 /* Buttons and links */
 
@@ -253,7 +228,6 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
   font-size: clamp(40px, 4.4vw, 60px); line-height: 1; margin-bottom: 14px;
 }
 .weapon p { max-width: 24em; }
-.row { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); max-width: 44em; font-size: 16px; }
 
 /* Compete */
 
@@ -282,14 +256,6 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 .shot.wide { aspect-ratio: 1400 / 788; }
 .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
 .shot:hover img { transform: scale(1.03); }
-
-/* Demos */
-
-.outreach { padding: clamp(80px, 10vw, 130px) 0; border-top: 1px solid var(--line); }
-.outreach-grid { display: grid; grid-template-columns: 1fr 2fr; column-gap: 60px; }
-.outreach-grid .kicker { grid-row: span 2; }
-.outreach p { font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; max-width: 30em; }
-.outreach .btn { justify-self: start; margin-top: 8px; }
 
 /* FAQ */
 
@@ -344,8 +310,8 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 
 @media (max-width: 900px) {
   .nav nav a:not(.nav-join):not(.nav-keep) { display: none; }
-  .practice-grid, .lpap-grid, .outreach-grid, .footer-grid { grid-template-columns: 1fr; }
-  .lpap-grid .kicker, .outreach-grid .kicker { grid-row: auto; }
+  .practice-grid, .lpap-grid, .footer-grid { grid-template-columns: 1fr; }
+  .lpap-grid .kicker { grid-row: auto; }
   .join-grid { grid-template-columns: 1fr; }
   .salute { width: 78%; margin: 0 auto; }
   .practice-media { min-height: 0; aspect-ratio: 4 / 3; margin: 0 calc(-1 * var(--gutter)); order: -1; }
@@ -370,8 +336,6 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
   .cmd-1, .cmd-2, .cmd-3 { top: 12%; bottom: auto; left: var(--gutter); right: auto; text-align: left; font-size: 56px; }
   .title { bottom: 88px; right: var(--gutter); }
   .title-line { margin: 20px 0; font-size: 16px; }
-  .cue { display: none; }
-  .skip-intro { bottom: 24px; }
   .brand-fencing { font-size: 20px; }
 }
 
@@ -381,9 +345,8 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
   .stage { position: relative; }
   #hero { display: none; }
   .poster { opacity: 1; }
-  .cmd, .cue, .skip-intro, .lamp { display: none; }
+  .cmd, .lamp { display: none; }
   .title { opacity: 1; visibility: visible; }
-  .cue i { animation: none; }
   html { scroll-behavior: auto; }
 }
 

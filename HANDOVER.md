@@ -18,7 +18,6 @@ Who owns what, so the site survives officer changes.
 - LPAP 172 and 173: Rice General Announcements, LPAP course list.
 - Fences all three weapons, enters USA Fencing tournaments: the old club site.
 - Club sport status: Rice Recreation's Club Sports Directory lists Fencing.
-- Demos offer: Leo, 27 Sept 2026 (outreach is part of why the site exists). Officers should agree before launch.
 - Fencing's low injury rate: IOC injury surveillance, 2008 and 2016 Games (only diving, synchronised swimming, rowing, kayak and sailing were lower in 2008).
 - Foil, épée and sabre target areas, right of way, the 14 m piste: the FIE rules, not club-specific.
 

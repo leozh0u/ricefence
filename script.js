@@ -162,14 +162,11 @@ if (!reduced && window.Lenis) {
   });
 }
 
-// Nav background and the piste marker.
+// Nav background.
 const nav = document.getElementById('nav');
 const intro = document.querySelector('.intro');
-const piste = document.getElementById('pisteFencer');
 function onScroll() {
   const y = window.scrollY;
-  const max = document.documentElement.scrollHeight - innerHeight;
-  piste.style.setProperty('--p', max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
   nav.classList.toggle('solid', y > intro.offsetHeight - innerHeight * 1.2);
 }
 addEventListener('scroll', onScroll, { passive: true });
@@ -249,7 +246,6 @@ function introTimeline() {
   // The timeline runs 0 to 1 over the whole intro scroll.
   tl.to(v, { frame: hero.last, duration: 0.66, onUpdate: () => hero.draw() }, 0)
     .to(v, { zoom: 1.16, duration: 0.3, ease: 'power2.in', onUpdate: () => hero.draw(true) }, 0.4)
-    .to('.cue', { opacity: 0, duration: 0.04 }, 0.02)
     .fromTo('.cmd-1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.05 }, 0.02)
     .to('.cmd-1', { opacity: 0, y: -30, duration: 0.05 }, 0.14)
     .fromTo('.cmd-2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.05 }, 0.19)
@@ -264,7 +260,6 @@ function introTimeline() {
     // in the source, and this is what a fencer does after a lunge anyway.
     .to(v, { frame: RECOVER_FRAME, duration: 0.12, ease: 'power1.out', onUpdate: () => hero.draw() }, 0.72)
     .to(v, { shift: mobile ? 0 : 0.2, zoom: 1.02, duration: 0.12, ease: 'power2.inOut', onUpdate: () => hero.draw(true) }, 0.72)
-    .to('.skip-intro', { autoAlpha: 0, duration: 0.05 }, 0.74)
     .fromTo('.title', { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.1 }, 0.76)
     .to({}, { duration: 0.14 }, 0.86);
 }

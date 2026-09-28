@@ -53,3 +53,13 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Google Form sign-up | blocked | Leo makes form, paste link into FORM_URL |
 | Buy ricefence.com, deploy | open | after Leo's go-ahead; repo private, Pages needs public or Cloudflare Pages |
 | Photoshoot, swap footage | open | shot list in the plan; scripts ready |
+
+## 2026-09-27, Leo's review round
+- Removed (Leo: "remove redundant stuff"): the right-of-way paragraph and the scroll-progress line under the nav.
+- Removed Skip intro and the Scroll cue (Leo). The hidden keyboard skip link stays; it only shows on Tab.
+- Title line now Leo's words: "Foil, épée and sabre. No experience or gear needed. Go stab your friends!"
+- Demos section removed: Leo wasn't sure what a demo is, and the officers haven't agreed to offer them. Easy to bring back.
+- rfc@rice.edu is not made up: it's the contact email on the club's OwlNest page.
+- Leo doesn't like Young Serif for the vibe. Font options shown to him; waiting on his pick.
+- Photos: drop them in source/photos-inbox/ (not committed); they get graded, cropped and compressed into assets/img/.
+- Sharing: Leo asked for a free link to send a friend. GitHub Pages, repo made public.
