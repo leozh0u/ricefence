@@ -6,6 +6,8 @@ const FORM_URL = '';
 
 // Frame counts must match what scripts/frames.sh and scripts/sequence.sh print.
 const HERO_FRAMES = 172;
+// Last sharp frame of the lunge, where the title rests.
+const RECOVER_FRAME = 110;
 const SALUTE_FRAMES = 70;
 const EXTEND_FRAMES = 62;
 
@@ -245,7 +247,7 @@ function introTimeline() {
   });
 
   // The timeline runs 0 to 1 over the whole intro scroll.
-  tl.to(v, { frame: hero.last, duration: 0.7, onUpdate: () => hero.draw() }, 0)
+  tl.to(v, { frame: hero.last, duration: 0.66, onUpdate: () => hero.draw() }, 0)
     .to(v, { zoom: 1.16, duration: 0.3, ease: 'power2.in', onUpdate: () => hero.draw(true) }, 0.4)
     .to('.cue', { opacity: 0, duration: 0.04 }, 0.02)
     .fromTo('.cmd-1', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.05 }, 0.02)
@@ -258,6 +260,9 @@ function introTimeline() {
     .to('.lamp', { opacity: 1, duration: 0.01 }, 0.6)
     .to('.lamp', { opacity: 0, duration: 0.08 }, 0.65)
     .to('#hero', { opacity: mobile ? 0.35 : 0.6, duration: 0.1 }, 0.72)
+    // Recover to en garde behind the title. The end of the lunge is out of focus
+    // in the source, and this is what a fencer does after a lunge anyway.
+    .to(v, { frame: RECOVER_FRAME, duration: 0.12, ease: 'power1.out', onUpdate: () => hero.draw() }, 0.72)
     .to(v, { shift: mobile ? 0 : 0.2, zoom: 1.02, duration: 0.12, ease: 'power2.inOut', onUpdate: () => hero.draw(true) }, 0.72)
     .to('.skip-intro', { autoAlpha: 0, duration: 0.05 }, 0.74)
     .fromTo('.title', { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.1 }, 0.76)

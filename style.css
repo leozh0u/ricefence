@@ -172,7 +172,7 @@ p { margin: 0 0 1em; }
 .text-link:hover { border-color: var(--white); color: var(--white); }
 
 .kicker {
-  font: 500 14px var(--mono); text-transform: lowercase; color: var(--muted);
+  font: 500 14px var(--mono); color: var(--muted);
   display: flex; align-items: center; gap: 14px; margin-bottom: 40px;
 }
 .kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; }
@@ -366,9 +366,8 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
   body { font-size: 16px; }
   .poster { object-fit: cover; }
   .steps li { grid-template-columns: 40px 1fr; }
-  .cmd-1 { top: 18%; }
-  .cmd-2 { top: 34%; }
-  .cmd-3 { bottom: 34%; }
+  /* The jacket fills the lower screen on phones, so commands use the dark band up top. */
+  .cmd-1, .cmd-2, .cmd-3 { top: 12%; bottom: auto; left: var(--gutter); right: auto; text-align: left; font-size: 56px; }
   .title { bottom: 88px; right: var(--gutter); }
   .title-line { margin: 20px 0; font-size: 16px; }
   .cue { display: none; }
@@ -378,6 +377,7 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 
 @media (prefers-reduced-motion: reduce) {
   .intro { height: auto; }
+  .poster { opacity: .6 !important; object-position: 0% center; }
   .stage { position: relative; }
   #hero { display: none; }
   .poster { opacity: 1; }
@@ -385,4 +385,8 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
   .title { opacity: 1; visibility: visible; }
   .cue i { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 700px) {
+  .poster { opacity: .35 !important; object-position: center; }
 }
