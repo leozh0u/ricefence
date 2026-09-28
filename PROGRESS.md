@@ -52,7 +52,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Practice times current? | done | replaced with Leo's club poster schedule; Playwright capture at 1440 and 375 |
 | Google Form sign-up | blocked | Leo makes form, paste link into FORM_URL |
 | Buy ricefence.com, deploy | open | Pages is on at leozh0u.github.io/ricefence; domain still to buy |
-| Photoshoot, swap footage | open | shot list in the plan; scripts ready |
+| Photoshoot | open | group, officer and practice photos only; Leo keeps the stock intro |
 
 ## 2026-09-27, Leo's review round
 - Removed (Leo: "remove redundant stuff"): the right-of-way paragraph and the scroll-progress line under the nav.
@@ -81,3 +81,4 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | FAQ and copy not AI-sounding | done | read back all visible copy; FAQ render captured |
 | Shareable link | blocked | Pages on at leozh0u.github.io/ricefence; my live check was blocked by the permission classifier, Leo to open it |
 | Logo (simpler poster owl) | blocked | prompt given; waiting on Leo's ChatGPT output |
+- Leo: keep the stock fencer intro ("the stock fencer intro is good though"). The club lunge clip is no longer needed for the intro.
