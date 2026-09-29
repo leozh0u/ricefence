@@ -373,3 +373,17 @@ section { position: relative; scroll-margin-top: var(--nav-h); }
 @media (prefers-reduced-motion: reduce) and (max-width: 700px) {
   .poster { opacity: .35 !important; object-position: center; }
 }
+
+/* The smallest phones (iPhone SE, 320px): the owl alone carries the brand. */
+@media (max-width: 360px) {
+  .brand-words { display: none; }
+}
+
+/* Phones held sideways: short screens need a smaller title so it clears the nav. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .title { bottom: 20px; }
+  .title h1 { font-size: 15vh; }
+  .title-line { margin: 12px 0 14px; font-size: 16px; }
+  .btn { min-height: 40px; }
+  .cmd { font-size: 18vh; }
+}

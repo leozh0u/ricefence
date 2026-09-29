@@ -1,0 +1,12 @@
+{
+  "name": "Rice Fencing Club",
+  "short_name": "Rice Fencing",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#07080a",
+  "background_color": "#07080a",
+  "display": "browser",
+  "start_url": "/"
+}
