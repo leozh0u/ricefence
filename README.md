@@ -17,6 +17,10 @@ python3 -m http.server 8766
 - `assets/owl.svg` is the logo (traced from source/logo/), with `owl-white.svg`, `favicon.svg`, `apple-touch-icon.png` and the share card `og.jpg`.
 - `assets/hero/` has the frame sequences, `assets/video/` has the two background loops, and `assets/img/` has the photo strip.
 
+## Hosting
+
+GitHub Pages serves the `main` branch at https://ricefence.com. The `CNAME` file holds the domain; DNS records are listed in HANDOVER.md.
+
 ## Common edits
 
 - **Sign-up form:** paste the Google Form link into `FORM_URL` at the top of `script.js`. Until then the button opens an email to rfc@rice.edu.

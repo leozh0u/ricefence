@@ -5,8 +5,8 @@ Who owns what, so the site survives officer changes.
 | Thing | Where | Owner now | Plan |
 |---|---|---|---|
 | Code | github.com/leozh0u/ricefence | Leo Zhou | Transfer to a club GitHub org once there's a club account |
-| Domain | ricefence.com (not bought yet) | | Register with auto-renew; move to the club account later |
-| Hosting | GitHub Pages (not set up yet) | | Follows the repo |
+| Domain | ricefence.com, registered at Porkbun (DNS by Porkbun/Cloudflare) | Leo Zhou's Porkbun account | Keep auto-renew on; transfer to a club account later |
+| Hosting | GitHub Pages, custom domain via the `CNAME` file | Leo Zhou (leozh0u) | Follows the repo |
 | Sign-up form | Google Form (not made yet) | | Make it on a club account so any officer can read responses |
 | Club email | rfc@rice.edu | Rice | |
 | GroupMe | https://groupme.com/join_group/89439129/sAFIJNvG | | |
@@ -31,3 +31,9 @@ Who owns what, so the site survives officer changes.
 - Instagram handle, if the club has one
 - Who can join (grad students, staff?) and which SWIFA schools the club usually fences
 - Whether the Rice name needs sign-off from Rice Club Sports before launch (no Rice logo is used)
+
+## DNS records at Porkbun (set 28 Sept 2026)
+
+- A records on ricefence.com: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 (GitHub Pages)
+- CNAME www.ricefence.com -> leozh0u.github.io
+- If the repo moves to a club GitHub org, change the CNAME target to <org>.github.io and set the custom domain again in the new repo's Pages settings.

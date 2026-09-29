@@ -51,7 +51,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Logo | blocked | waiting on Leo's ChatGPT options (prompt given) |
 | Practice times current? | done | replaced with Leo's club poster schedule; Playwright capture at 1440 and 375 |
 | Google Form sign-up | blocked | Leo makes form, paste link into FORM_URL |
-| Buy ricefence.com, deploy | open | Pages is on at leozh0u.github.io/ricefence; domain still to buy |
+| Buy ricefence.com, deploy | done | https://ricefence.com 200; http and the old github.io link 301 to it; HTTPS enforced; frames and og.jpg 200 |
 | Photoshoot | open | group, officer and practice photos only; Leo keeps the stock intro |
 
 ## 2026-09-27, Leo's review round
@@ -79,7 +79,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Title line in Leo's words, one line, serif | done | captured 1280/1440/1920 one line; 375 wraps |
 | Original title back, identically | done | CSS/JS diffed against 89361e3 |
 | FAQ and copy not AI-sounding | done | read back all visible copy; FAQ render captured |
-| Shareable link | blocked | Pages on at leozh0u.github.io/ricefence; my live check was blocked by the permission classifier, Leo to open it |
+| Shareable link | done | https://ricefence.com returns 200 |
 | Logo (simpler poster owl) | done | traced SVG in nav, footer, favicon, touch icon, share card; captured at 1440 and 375 |
 - Leo: keep the stock fencer intro ("the stock fencer intro is good though"). The club lunge clip is no longer needed for the intro.
 
@@ -88,3 +88,5 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - Favicon: full emblem, white on a navy rounded square (assets/favicon.svg); apple-touch-icon.png at 180px.
 - Share card: assets/og.jpg (owl plus "Rice Fencing Club" in Young Serif, 1200x630), so links sent in chats show a preview.
 - Leo: nav font still looked off next to the title. Cause: Young Serif has one weight, and the title (600) gets browser-synthesised bold while the nav was 400. Nav and buttons now 600, white, -0.01em tracking, 17px, matching the title.
+- Domain: Leo bought ricefence.com on Porkbun and added GitHub's 4 A records plus www CNAME. Added the CNAME file and set the Pages custom domain. dig shows the records on Google and Cloudflare resolvers; http://ricefence.com returns 200 and www redirects to it. Certificate authorized, waiting on issue to enforce HTTPS.
+- HTTPS certificate issued; HTTPS enforced. Live at https://ricefence.com (checked with curl: 200, redirects working).
