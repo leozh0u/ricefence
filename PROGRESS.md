@@ -93,3 +93,16 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - iPhone/iPad check (Playwright WebKit, the Safari engine): iPhone SE 320, iPhone 15 Pro, 15 Pro Max, 15 Pro landscape, iPad Mini, iPad Pro 11 portrait and landscape. No overflow, no errors, nothing past the viewport edge. Fixed: at 320 the wordmark hit "Practice" (now owl only under 360px); sideways phones clipped the title under the nav (smaller title under 500px tall). Script: scratchpad pw/ios.js.
 - Copy (Leo): "Let us know you're coming." and "Come to any practice in the Tudor East Gym, and feel free to bring a friend."
 - Favicon (Leo: "make sure there's a favicon"): favicon.ico at the root, SVG, apple-touch-icon, 192/512 PNGs and site.webmanifest.
+
+## Ledger update (2026-09-28)
+
+| Item | State | Check |
+|---|---|---|
+| iPhone and iPad compatible | done | WebKit run against live ricefence.com on 7 device sizes: no overflow, no errors; SE nav owl-only (wordmark right edge 62px), landscape title fix live in style.css |
+| "Let us know you're coming" / "feel free to bring a friend" | done | both strings in live HTML |
+| Favicon | done | favicon.ico, SVG, touch icon, manifest all 200 on ricefence.com |
+| Domain + HTTPS | done | 200 over https, redirects 301 |
+| Google Form | blocked | Leo to make it and send the link |
+| Officer, coach, dues, Instagram, results info | blocked | Leo to get from officers |
+| Photos | blocked | Leo drops them in source/photos-inbox/ |
+| Google search listing, visitor counter | open | offered; waiting on Leo's yes |
