@@ -87,3 +87,4 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 - Logo: Leo's simplified owl-and-foils from ChatGPT (originals moved from Downloads to source/logo/logo-closeup.png and logo-wide.png). Traced with potrace into assets/owl.svg (currentColor) and owl-white.svg. Used in the nav next to the wordmark and in the footer.
 - Favicon: full emblem, white on a navy rounded square (assets/favicon.svg); apple-touch-icon.png at 180px.
 - Share card: assets/og.jpg (owl plus "Rice Fencing Club" in Young Serif, 1200x630), so links sent in chats show a preview.
+- Leo: nav font still looked off next to the title. Cause: Young Serif has one weight, and the title (600) gets browser-synthesised bold while the nav was 400. Nav and buttons now 600, white, -0.01em tracking, 17px, matching the title.
