@@ -1,9 +1,5 @@
 // Rice Fencing Club. Scroll-scrubbed footage plus a few small scroll moments.
 
-// Paste the Google Form link here once it exists. Until then the sign-up
-// button opens an email to the club.
-const FORM_URL = '';
-
 // Frame counts must match what scripts/frames.sh and scripts/sequence.sh print.
 const HERO_FRAMES = 172;
 // Last sharp frame of the lunge, where the title rests.
@@ -15,13 +11,6 @@ const BG = '#08090d';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mobile = matchMedia('(max-width: 700px)').matches;
 const hasGsap = window.gsap && window.ScrollTrigger;
-
-if (FORM_URL) {
-  const s = document.getElementById('signup');
-  s.href = FORM_URL;
-  s.target = '_blank';
-  s.rel = 'noopener';
-}
 
 // A sequence of still frames drawn to a canvas. Frame 0 loads first, then a
 // coarse pass so scrubbing works early, then the gaps fill in.

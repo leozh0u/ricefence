@@ -106,3 +106,9 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 | Officer, coach, dues, Instagram, results info | blocked | Leo to get from officers |
 | Photos | blocked | Leo drops them in source/photos-inbox/ |
 | Google search listing, visitor counter | open | offered; waiting on Leo's yes |
+
+## 2026-10-03
+- Club email is now ricefencingclub@gmail.com (Leo). Footer and contact use it; rfc@rice.edu stays only as the older OwlNest address in HANDOVER. Footer email sized to fit one line on desktop, wraps after "@" on phones (checked in WebKit at 320, 393, 1440).
+- Sign up button links to Leo's Google Form ("Rice Fencing Club Interest Form": name, Rice email, GroupMe, Club Sports waiver, competing). FORM_URL code removed; the link is plain HTML.
+| Google Form | done | Sign up -> form URL, opens in new tab; form confirmed open |
+| Club email | done | mailto:ricefencingclub@gmail.com on live site |

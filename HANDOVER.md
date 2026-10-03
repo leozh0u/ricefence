@@ -7,15 +7,15 @@ Who owns what, so the site survives officer changes.
 | Code | github.com/leozh0u/ricefence | Leo Zhou | Transfer to a club GitHub org once there's a club account |
 | Domain | ricefence.com, registered at Porkbun (DNS by Porkbun/Cloudflare) | Leo Zhou's Porkbun account | Keep auto-renew on; transfer to a club account later |
 | Hosting | GitHub Pages, custom domain via the `CNAME` file | Leo Zhou (leozh0u) | Follows the repo |
-| Sign-up form | Google Form (not made yet) | | Make it on a club account so any officer can read responses |
-| Club email | rfc@rice.edu | Rice | |
+| Sign-up form | Google Form, Rice Fencing Club Interest Form (https://docs.google.com/forms/d/e/1FAIpQLSdhSlPlhGdQ31QVwY-u3ZprUB114_f2EOqNXO9n0UjjRqvj9g/viewform) | club | |
+| Club email | ricefencingclub@gmail.com (on the site); rfc@rice.edu is the older address on OwlNest | club | Use this account for the domain and a GitHub org when handing over |
 | GroupMe | https://groupme.com/join_group/89439129/sAFIJNvG | | |
 
 ## Facts on the site and where they came from
 
 - Practice: Mon 7-9 pm all weapons, Fri 6-8 pm all weapons, Sat 7-9 pm rotating weapon (foil/épée/sabre), all in the Tudor East Gym. Source: the club schedule poster Leo sent, 27 Sept 2026. The Maps link points at Tudor Fieldhouse, which has named East and West gyms.
 - Learn-the-rules links: Vox and FIE explainers, Ninh Ly on right of way, USA Fencing's Fencing 101 and rulebook pages (all checked 27 Sept 2026).
-- Equipment and lessons for new fencers, international-level coaches, SWIFA, GroupMe, rfc@rice.edu, mailing address: the club's OwlNest page.
+- Equipment and lessons for new fencers, international-level coaches, SWIFA, GroupMe, mailing address: the club's OwlNest page.
 - LPAP 172 and 173: Rice General Announcements, LPAP course list.
 - Fences all three weapons, enters USA Fencing tournaments: the old club site.
 - Club sport status: Rice Recreation's Club Sports Directory lists Fencing.
@@ -37,3 +37,4 @@ Who owns what, so the site survives officer changes.
 - A records on ricefence.com: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 (GitHub Pages)
 - CNAME www.ricefence.com -> leozh0u.github.io
 - If the repo moves to a club GitHub org, change the CNAME target to <org>.github.io and set the custom domain again in the new repo's Pages settings.
+- Club email ricefencingclub@gmail.com and the sign-up form: Leo, 3 Oct 2026.
