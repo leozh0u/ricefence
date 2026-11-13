@@ -42,7 +42,7 @@ Leo's standing rule: ideas he drops mid-task are judged and folded in if good, a
 
 | Item | State | Check |
 |---|---|---|
-| Plan the site, make ~/Projects/ricefence | done | folder, repo leozh0u/ricefence pushed |
+| Plan the site, make ~/Projects/Experience/ricefence | done | folder, repo leozh0u/ricefence pushed |
 | Scroll animations with realistic fencers | done | intro, salute, extension scrubs; Playwright captures at 1440/1920/375 |
 | Standalone fencers on pure black (his references) | done | critic v3 item 10a pass |
 | Less serious font, more Rice, chill copy | done | Young Serif, mixed case; critic v3 10b pass; font-swap recapture, 0 errors |
